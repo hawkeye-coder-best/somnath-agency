@@ -12,7 +12,7 @@ import { EnquiriesModule } from './enquiries/enquiries.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: process.env.DATABASE_URL ? 'postgres' : 'sqlite',
+      type: (process.env.DATABASE_URL ? 'postgres' : 'sqlite') as any,
       database: process.env.DATABASE_URL || 'somnath_agency.sqlite',
       url: process.env.DATABASE_URL,
       entities: [Product, StoreConfig, Enquiry],
